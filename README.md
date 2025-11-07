@@ -1,6 +1,7 @@
-# Nanopi R1S R2S R2C R4S X86 Openwrt 固件
+# X86 Openwrt 固件
 
-[刷机工具](https://www.balena.io/etcher/)  
+本仓库专注于 X86 平台的 OpenWrt 固件构建。
+
 [下载地址](#下载地址)  
 [更新说明](#更新说明)  
 [使用提示](#使用提示)  
@@ -14,8 +15,7 @@ https://github.com/stupidloud/nanopi-openwrt/tags
 
 ### 使用提示：
 默认用户名是root, 密码是password，局域网IP为192.168.2.1  
-烧制完固件插入tf卡并启动完成，电脑端显示“网络（已连接）”之后，在浏览器输入 http://immortalwrt/ 可以直接打开路由器后台，无需修改本地连接设置或者查看IP地址。  
-如果网络状态一直是未识别（上电超过5分钟），请直接插拔一次电源重启试试。
+安装完固件后，在浏览器输入 http://immortalwrt/ 或 http://192.168.2.1 可以直接打开路由器后台。
 
 ### 终端内在线升级方法：
 ```bash
@@ -38,10 +38,10 @@ wget -qO- https://github.com/klever1988/nanopi-openwrt/raw/master/scripts/autoup
 - 使用[在线升级](#终端内在线升级方法)时，根分区会自动扩容，方便折腾
 
 ### 1分钟生成自己所需固件
-因为本项目预编译了Image builder，生成固件仅需1-3分钟，如果有兴趣自定义固件可以Fork本项目，编辑设备对应的config.seed文件，例如r2s.config.seed, 去掉(整行删除)不需要的luci app软件包配置行，添加自己所需的软件，可用软件的列表可以在github actions构件输出处获取，例如  
+因为本项目预编译了Image builder，生成固件仅需1-3分钟，如果有兴趣自定义固件可以Fork本项目，编辑 x86.config.seed 文件，去掉(整行删除)不需要的luci app软件包配置行，添加自己所需的软件，可用软件的列表可以在github actions构件输出处获取，例如  
 <img src="https://user-images.githubusercontent.com/56048681/114531174-3beafb80-9c7e-11eb-8bcc-b098c3b1cee8.png" width="250" />  
 <img src="https://user-images.githubusercontent.com/56048681/124495884-43d4ba80-ddeb-11eb-95e9-fb096dcfda45.png" width="250" />  
-完成之后进入Actions，点击左侧Build，点击右侧Run workflow输入设备名（r2s/r2c/r4s/r1s/r1s-h3/r1p/r1p-lts）  
+完成之后进入Actions，点击左侧Build，点击右侧Run workflow输入设备名（x86）  
 <img src="https://user-images.githubusercontent.com/56048681/114531768-c7648c80-9c7e-11eb-8d72-fe38f9df960d.png" width="250" />  
 再点击Run即可获取自己所需的固件
 
